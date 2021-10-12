@@ -6,7 +6,9 @@ function Home() {
     return (
         <GeneralLayout>
             <div className="bg-white p-4 rounded flex flex-row">
-                <CategoriesDropdown />
+                <div className="w-1/5">
+                    <CategoriesDropdown />
+                </div>
             </div>
         </GeneralLayout>
     )
