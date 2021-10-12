@@ -7,6 +7,9 @@ function Home() {
             <div className="min-h-screen bg-white rounded p-4">
                 home page
             </div>
+            <div className="min-h-screen bg-white rounded p-4">
+                home page
+            </div>
         </GeneralLayout>
     )
 }
