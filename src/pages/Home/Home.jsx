@@ -4,6 +4,7 @@ import SearchInput from '../../components/search/SearchInput'
 import GeneralLayout from '../../layouts/GeneralLayout'
 import banner from '../../assets/main-banner.jpg'
 import { data } from '../../utils/data'
+import ProductItem from '../../components/product_item/ProductItem'
 
 function Home() {
     return (
@@ -39,9 +40,84 @@ function Home() {
                 </div>
 
                 {/* //two exclusive categories */}
-                <div className="grid grid-cols-2 md:gap-8 gap-4 md:pt-16 pt-8">
-                    <div className="col-span-1 bg-blue-200 rounded h-40"></div>
-                    <div className="col-span-1 bg-yellow-200 rounded h-40"></div>
+                <div className="grid md:grid-cols-2 grid-cols-1 md:gap-8 gap-4 md:pt-16 pt-8">
+                    <div className="col-span-1 bg-blue-200 rounded md:h-40 h-32"></div>
+                    <div className="col-span-1 bg-yellow-200 rounded md:h-40 h-32"></div>
+                </div>
+
+                {/* // special products */}
+                <div className="items flex-col">
+                    <p className="text-lg font-semibold text-gray-700 capitalize py-8">special products</p>
+                    <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-4">
+                        {
+                            data.products?.map((product, index) => (
+                                <ProductItem
+                                    key={index}
+                                    picture={product.picture}
+                                    price={product.price}
+                                    discount_price={product.discount_price}
+                                    name={product.name}
+                                    description={product.descrition}
+                                    rating={product.rating}
+                                />
+                            ))
+                        }
+
+                    </div>
+                </div>
+
+                 {/* //two exclusive categories */}
+                 <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 md:pt-16 pt-8">
+                    <div className="col-span-2 bg-blue-200 rounded md:h-40 h-32"></div>
+                    <div className="col-span-1 bg-yellow-200 rounded md:h-40 h-32"></div>
+                </div>
+
+                {/* // featured products */}
+                <div className="items flex-col">
+                    <p className="text-lg font-semibold text-gray-700 capitalize py-8">Featured products</p>
+                    <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-4">
+                        {
+                            data.products?.map((product, index) => (
+                                <ProductItem
+                                    key={index}
+                                    picture={product.picture}
+                                    price={product.price}
+                                    discount_price={product.discount_price}
+                                    name={product.name}
+                                    description={product.descrition}
+                                    rating={product.rating}
+                                />
+                            ))
+                        }
+
+                    </div>
+                </div>
+
+                {/* //two Latest categories */}
+                <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 md:pt-16 pt-8">
+                    <div className="col-span-1 bg-blue-200 rounded md:h-40 h-32"></div>
+                    <div className="col-span-2 bg-yellow-200 rounded md:h-40 h-32"></div>
+                </div>
+
+                 {/* // featured products */}
+                 <div className="items flex-col">
+                    <p className="text-lg font-semibold text-gray-700 capitalize py-8">Latest products</p>
+                    <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-4">
+                        {
+                            data.products?.map((product, index) => (
+                                <ProductItem
+                                    key={index}
+                                    picture={product.picture}
+                                    price={product.price}
+                                    discount_price={product.discount_price}
+                                    name={product.name}
+                                    description={product.descrition}
+                                    rating={product.rating}
+                                />
+                            ))
+                        }
+
+                    </div>
                 </div>
             </div>
         </GeneralLayout>
