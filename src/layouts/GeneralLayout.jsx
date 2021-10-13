@@ -4,7 +4,7 @@ import GeneralNavbar from '../components/navigation/GeneralNavbar'
 function GeneralLayout({children}) {
     return (
         <div>
-            <div className="sticky top-0 w-full">
+            <div className="z-50 sticky top-0 w-full">
                 <GeneralNavbar/>
             </div>
             <div className="lg:px-32 md:px-16 px-2 bg-gray-100 min-h-screen w-full">
