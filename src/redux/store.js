@@ -1,5 +1,6 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
+import { add_to_cart_Reducer } from "./reducers/cartReducer";
 
 const initialState = {
   userCredsSignIn: {
@@ -10,6 +11,7 @@ const initialState = {
 };
 const reducer = combineReducers({
     //this is where all the reducers go
+    add_to_cart: add_to_cart_Reducer,
 });
 
 const composeForBrowser =
