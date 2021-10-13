@@ -11,7 +11,7 @@ function ProductItem({picture, rating, name, description, price, discount_price,
 
     const add_to_cart = () =>{
         const item = {
-            picture, rating, price, description, price, discount_price, id
+            picture, rating, description, price, discount_price, id, name
         }
         dispatch(add_to_cart_Action(item))
     }

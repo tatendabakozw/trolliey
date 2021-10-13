@@ -1,11 +1,12 @@
 import React from 'react'
 import GeneralLayout from '../../layouts/GeneralLayout'
-import { useState } from 'react'
-import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
+import { Disclosure, Tab } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/solid'
 import { HeartIcon, MinusSmIcon, PlusSmIcon } from '@heroicons/react/outline'
 import BlueButton from '../../components/buttons/BlueButton'
 import RedButton from '../../components/buttons/RedButton'
+import {useDispatch} from 'react-redux'
+import {add_to_cart_Action} from '../../redux/actions/cartActions'
 
 const product = {
     name: 'Zip Tote Basket',
@@ -43,6 +44,7 @@ const product = {
         },
         // More sections...
     ],
+    id: 1
 }
 
 function classNames(...classes) {
@@ -50,7 +52,20 @@ function classNames(...classes) {
 }
 
 function ProductDescription() {
-    const [selectedColor, setSelectedColor] = useState(product.colors[0])
+
+    const dispatch = useDispatch()
+
+    const add_to_basket = () =>{
+        const item = {
+            picture : product.images[0], 
+            rating:product.rating, 
+            description:product.description, 
+            price:product.price, 
+            id: product.id, 
+            name: product.name
+        }
+        dispatch(add_to_cart_Action(item))
+    }
 
     return (
         <GeneralLayout>
@@ -139,15 +154,15 @@ function ProductDescription() {
                                     />
                                 </div>
 
-                                <form className="mt-6">
+                                <div className="mt-6">
                                     {/* Colors */}
                                     <div className="mt-10 flex sm:flex-col1">
-                                        <BlueButton text="Add to cart" className="flex-1" />
+                                        <BlueButton text="Add to cart" className="flex-1" onClick={add_to_basket} />
                                         <div className="mx-1"></div>
                                         <RedButton text={<HeartIcon className="h-6 w-6 flex-shrink-0" aria-hidden="true" />} outline />
                                         
                                     </div>
-                                </form>
+                                </div>
 
                                 <section aria-labelledby="details-heading" className="mt-12">
                                     <h2 id="details-heading" className="sr-only">
@@ -182,7 +197,7 @@ function ProductDescription() {
                                                             </Disclosure.Button>
                                                         </h3>
                                                         <Disclosure.Panel as="div" className="pb-6 prose prose-sm">
-                                                            <ul role="list">
+                                                            <ul>
                                                                 {detail.items.map((item) => (
                                                                     <li key={item}>{item}</li>
                                                                 ))}

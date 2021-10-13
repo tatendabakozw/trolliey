@@ -21,11 +21,11 @@ export const data = {
         { heading: 'Save money', details: 'frequent discounts', icon: <CurrencyDollarIcon height={32} width={32} className="mr-2" /> },
     ],
     products:[
-        {name: 'toyota hilux', descrition: 'iam a a product iam a description of a product iam a description of a productiam a a product iam a description of a product iam a description of a product', rating: ['1', '2', '3', '4'], price:'242', discount_price: '200', picture: picture, id: 1},
-        {name: 'toyota hilux', descrition: 'iam a a product iam a description of a product iam a description of a productiam a a product iam a description of a product iam a description of a product', rating: ['1', '2', '3', '4'], price:'242', discount_price: '200', picture: picture, id: 2},
-        {name: 'pants', descrition: 'babt dipers', rating: ['1', '2', '3'], price:'20', discount_price: '15', picture: image, id: 3},
-        {name: 'toyota hilux', descrition: 'iam a a product iam a description of a product iam a description of a productiam a a product iam a description of a product iam a description of a product', rating: ['1', '2', '3', '4'], price:'242', discount_price: '200', picture: picture, id: 4},
-        {name: 'pants', descrition: 'babt dipers', rating: ['1', '2', '3'], price:'20', discount_price: '15', picture: image, id: 5},
+        {name: 'toyota hilux', descrition: 'iam a a product iam a description of a product iam a description of a productiam a a product iam a description of a product iam a description of a product', rating: ['1', '2', '3', '4'], price:242, discount_price: 200, picture: picture, id: 1},
+        {name: 'toyota hilux', descrition: 'iam a a product iam a description of a product iam a description of a productiam a a product iam a description of a product iam a description of a product', rating: ['1', '2', '3', '4'], price:242, discount_price: 200, picture: picture, id: 2},
+        {name: 'pants', descrition: 'babt dipers', rating: ['1', '2', '3'], price:20, discount_price: 15, picture: image, id: 3},
+        {name: 'toyota hilux', descrition: 'iam a a product iam a description of a product iam a description of a productiam a a product iam a description of a product iam a description of a product', rating: ['1', '2', '3', '4'], price:242, discount_price: 200, picture: picture, id: 4},
+        {name: 'pants', descrition: 'babt dipers', rating: ['1', '2', '3'], price:20, discount_price: 15, picture: image, id: 5},
         
     ]
 }
