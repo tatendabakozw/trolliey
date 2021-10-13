@@ -25,7 +25,7 @@ function SearchInput() {
                 <input
                     type="text"
                     placeholder="Search Product Here..."
-                    className="md:p-3 p-2 text-xs rounded-r border-l border-gray-300 flex-1"
+                    className="md:p-3 p-2 text-xs rounded-r border-l border-gray-200 flex-1 outline-none"
                     onChange={e => setSearchQuery(e.target.value)}
                 />
             </div>

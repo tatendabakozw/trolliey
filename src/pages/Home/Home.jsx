@@ -3,19 +3,14 @@ import CategoriesDropdown from '../../components/categories_dropdown/CategoriesD
 import SearchInput from '../../components/search/SearchInput'
 import GeneralLayout from '../../layouts/GeneralLayout'
 import banner from '../../assets/main-banner.jpg'
-import { EmojiHappyIcon, CreditCardIcon, ShoppingBagIcon, CurrencyDollarIcon } from '@heroicons/react/outline'
-
-const benefits = [
-    { heading: 'Free shipment', details: 'Free shipment for bulk goods', icon: <ShoppingBagIcon height={32} width={32} className="mr-2" /> },
-    { heading: 'Anyplace anytime', details: 'Many methods', icon: <CreditCardIcon height={32} width={32} className="mr-2" /> },
-    { heading: '100% Satisfaction', details: 'great customer care', icon: <EmojiHappyIcon height={32} width={32} className="mr-2" /> },
-    { heading: 'Save money', details: 'frequent discounts', icon: <CurrencyDollarIcon height={32} width={32} className="mr-2" /> },
-]
+import { data } from '../../utils/data'
 
 function Home() {
     return (
         <GeneralLayout>
             <div className="bg-white md:p-8 p-2 rounded">
+
+                {/* // banner and categories */}
                 <div className="top w-full flex flex-row md:gap-8 gap-2">
                     <div className="md:w-1/5 md:flex hidden">
                         <CategoriesDropdown />
@@ -27,9 +22,11 @@ function Home() {
                         </div>
                     </div>
                 </div>
+
+                {/* //benefits */}
                 <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:py-16 pt-16 pb-4 md:border-b border-b-none border-gray-200 items-center">
                     {
-                        benefits.map((benefit, index) => (
+                        data.benefits.map((benefit, index) => (
                             <div key={index} className="col-span-1 flex md:flex-row flex-col md:border-none border-b border-gray-200 md:pb-0 pb-4 text-red-400 hover:text-blue-primary cursor-pointer">
                                 {benefit.icon}
                                 <div className="flex flex-col">
@@ -39,8 +36,12 @@ function Home() {
                             </div>
                         ))
                     }
+                </div>
 
-
+                {/* //two exclusive categories */}
+                <div className="grid grid-cols-2 md:gap-8 gap-4 md:pt-16 pt-8">
+                    <div className="col-span-1 bg-blue-200 rounded h-40"></div>
+                    <div className="col-span-1 bg-yellow-200 rounded h-40"></div>
                 </div>
             </div>
         </GeneralLayout>
