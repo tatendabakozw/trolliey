@@ -1,10 +1,12 @@
 import React from 'react'
 import { StarIcon } from '@heroicons/react/solid'
 import RedButton from '../buttons/RedButton'
+import { useHistory } from 'react-router-dom'
 
 function ProductItem({picture, rating, name, description, price, discount_price, dicount, id}) {
+    const history = useHistory()
     return (
-        <div className="relative flex flex-col w-full">
+        <div onClick={()=> history.push(`/product/description/${id}`)} className="cursor-pointer relative flex flex-col w-full">
             <div className="md:h-56 h-40 overflow-hidden rounded">
                 <img src={picture} alt="product" className="flex-1 max-h-full flex-shrink-0 object-cover w-auto h-full" />
             </div>

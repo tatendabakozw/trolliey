@@ -59,6 +59,7 @@ function Home() {
                                     name={product.name}
                                     description={product.descrition}
                                     rating={product.rating}
+                                    id={product.id}
                                 />
                             ))
                         }
