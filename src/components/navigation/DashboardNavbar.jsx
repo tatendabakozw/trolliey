@@ -4,12 +4,20 @@ import {BellIcon, MenuAlt1Icon} from '@heroicons/react/outline'
 import {ChevronDownIcon, SearchIcon} from '@heroicons/react/solid'
 import UserAvatar from '../user_avatar/UserAvatar'
 import Username from '../username/Username'
+import { useState } from 'react'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 function DashboardNavbar({setSidebarOpen}) {
+    const [query, setQuery] = useState()
+
+    const search_items_handler = (e) =>{
+        e.preventDefault()
+        console.log(query)
+    }
+
     return (
         <>
             <div className="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:border-none">
@@ -24,7 +32,7 @@ function DashboardNavbar({setSidebarOpen}) {
                 {/* Search bar */}
                 <div className="flex-1 px-4 flex justify-between sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8">
                     <div className="flex-1 flex">
-                        <form className="w-full flex md:ml-0" action="#" method="GET">
+                        <form onSubmit={search_items_handler} className="w-full flex md:ml-0" action="#" method="GET">
                             <label htmlFor="search-field" className="sr-only">
                                 Search
                             </label>
@@ -35,6 +43,7 @@ function DashboardNavbar({setSidebarOpen}) {
                                 <input
                                     id="search-field"
                                     name="search-field"
+                                    onChange={e => setQuery(e.target.value)}
                                     className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 outline-none sm:text-sm"
                                     placeholder="Search transactions"
                                     type="search"
