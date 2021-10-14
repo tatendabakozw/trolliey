@@ -32,7 +32,7 @@ function GeneralNavbar() {
 
             {/* //dropdown when suer icon has been presses */}
             <div className="md:flex hidden rounded-full cursor-pointer">
-                <UserDropdown/>
+                <UserDropdown user={true}/>
             </div>
 
             {/* //drawer when on moblie view */}

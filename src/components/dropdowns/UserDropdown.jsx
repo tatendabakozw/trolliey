@@ -36,12 +36,17 @@ function UserDropdown({ user }) {
                 </MenuButton>
                 <MenuList>
                     <MenuItem>
-                        <UserAvatar size="sm" />
                         {
                             user ? (
-                                <Username name={'tatendaZw'} />
+                                <div onClick={()=> history.push('/dashboard')} className="flex">
+                                    <UserAvatar size="sm" />
+                                    <Username name={'tatendaZw'} />
+                                </div>
                             ) : (
-                                <Username name={'Guest User'} />
+                                <div className="flex">
+                                    <UserAvatar size="sm" />
+                                    <Username name={'Guest User'} />
+                                </div>
                             )
                         }
                     </MenuItem>

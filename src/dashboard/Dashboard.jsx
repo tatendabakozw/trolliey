@@ -11,7 +11,27 @@ const cards = [
 const transactions = [
     {
         id: 1,
-        name: 'Payment to Molly Sanders',
+        name: 'Payment to someone',
+        href: '/transactions',
+        amount: '$20,000',
+        currency: 'USD',
+        status: 'success',
+        date: 'July 11, 2020',
+        datetime: '2020-07-11',
+    },
+    {
+        id: 2,
+        name: 'Payment to someone',
+        href: '/transactions',
+        amount: '$20,000',
+        currency: 'USD',
+        status: 'success',
+        date: 'July 11, 2020',
+        datetime: '2020-07-11',
+    },
+    {
+        id: 3,
+        name: 'Payment to someone',
         href: '/transactions',
         amount: '$20,000',
         currency: 'USD',
@@ -51,7 +71,7 @@ export default function Dashboard() {
                                                 <UserAvatar size="lg" />
                                             </div>
                                             <h1 className="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate">
-                                                Good morning, Emilia Birch
+                                                Good morning, Tatenda Bako
                                             </h1>
                                         </div>
                                         <dl className="mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
