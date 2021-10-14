@@ -3,6 +3,7 @@ import { ShoppingCartIcon, UserIcon, HeartIcon, MenuIcon } from '@heroicons/reac
 import { useSelector } from 'react-redux'
 import CartSidebar from '../cart_sidebar/CartSidebar'
 import { useHistory } from 'react-router'
+import UserDropdown from '../dropdowns/UserDropdown'
 
 function GeneralNavbar() {
 
@@ -27,8 +28,8 @@ function GeneralNavbar() {
                     {basket?.length}
                 </span>
             </div>
-            <div className="md:flex hidden p-2 bg-gray-100 hover:bg-gray-200 rounded-full cursor-pointer">
-                <UserIcon height={20} width={20} className="text-gray-700" />
+            <div className="md:flex hidden rounded-full cursor-pointer">
+                <UserDropdown/>
             </div>
             <div className="md:hidden flex">
                 <MenuIcon height={20} width={20} className="text-gray-700" />
