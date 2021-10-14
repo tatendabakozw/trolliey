@@ -1,5 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import BlueButton from '../buttons/BlueButton'
+
 const navigation = {
     main: [
         { name: 'About', href: '/howitworks' },
@@ -56,8 +59,19 @@ const navigation = {
 
 export default function Footer() {
 
+    const history = useHistory()
+
     return (
         <footer className="bg-white">
+            <div className="bg-red-400 h-20 flex md:flex-row flex-col items-center justify-between lg:px-32 md:px-16 px-2">
+                <div onClick={() => history.push('/')} className="md:flex hidden md:mr-16 mr-2">
+                    <p className="text-white font-semibold text-lg uppercase">Logo</p>
+                </div>
+                <div className="input flex flex-row items-center flex-1">
+                    <input type="text" className="p-2 rounded bg-white outline-none md:mr-4 mr-2 flex-1" placeholder="Type message ..." />
+                    <BlueButton text="Submit" />
+                </div>
+            </div>
             <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
 
                 <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
