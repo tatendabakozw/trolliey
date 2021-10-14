@@ -1,38 +1,31 @@
 import { Fragment, useState } from 'react'
-import { Dialog, Menu, Transition } from '@headlessui/react'
+import { Menu, Transition } from '@headlessui/react'
 import {
     BellIcon,
-    ClockIcon,
-    CogIcon,
-    CreditCardIcon,
-    DocumentReportIcon,
-    HomeIcon,
     MenuAlt1Icon,
-    QuestionMarkCircleIcon,
-    ScaleIcon,
-    ShieldCheckIcon,
-    UserGroupIcon,
-    XIcon,
+    ScaleIcon
 } from '@heroicons/react/outline'
 import {
     CashIcon,
     CheckCircleIcon,
     ChevronDownIcon,
     ChevronRightIcon,
-    OfficeBuildingIcon,
     SearchIcon,
 } from '@heroicons/react/solid'
 import DashboardSidebar from '../components/dashboard_sidebar/DashboardSidebar'
+import UserAvatar from '../components/user_avatar/UserAvatar'
+import Username from '../components/username/Username'
+import BlueButton from '../components/buttons/BlueButton'
 
 const cards = [
-    { name: 'Account balance', href: '#', icon: ScaleIcon, amount: '$30,659.45' },
+    { name: 'Account balance', href: '/account', icon: ScaleIcon, amount: '$30,659.45' },
     // More items...
 ]
 const transactions = [
     {
         id: 1,
         name: 'Payment to Molly Sanders',
-        href: '#',
+        href: '/transactions',
         amount: '$20,000',
         currency: 'USD',
         status: 'success',
@@ -57,7 +50,7 @@ export default function Dashboard() {
     return (
         <div className="relative h-screen flex overflow-hidden bg-gray-100">
             <div className="h-full">
-            <DashboardSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+                <DashboardSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
             </div>
 
             {/* // the body of the dashboard */}
@@ -66,7 +59,7 @@ export default function Dashboard() {
                 <div className="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:border-none">
                     <button
                         type="button"
-                        className="px-4 border-r border-gray-200 text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500 lg:hidden"
+                        className="px-4 border-r border-gray-200 text-gray-400 focus:outline-none lg:hidden"
                         onClick={() => setSidebarOpen(true)}
                     >
                         <span className="sr-only">Open sidebar</span>
@@ -86,7 +79,7 @@ export default function Dashboard() {
                                     <input
                                         id="search-field"
                                         name="search-field"
-                                        className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent sm:text-sm"
+                                        className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 outline-none sm:text-sm"
                                         placeholder="Search transactions"
                                         type="search"
                                     />
@@ -96,7 +89,7 @@ export default function Dashboard() {
                         <div className="ml-4 flex items-center md:ml-6">
                             <button
                                 type="button"
-                                className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
+                                className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none"
                             >
                                 <span className="sr-only">View notifications</span>
                                 <BellIcon className="h-6 w-6" aria-hidden="true" />
@@ -105,14 +98,11 @@ export default function Dashboard() {
                             {/* Profile dropdown */}
                             <Menu as="div" className="ml-3 relative">
                                 <div>
-                                    <Menu.Button className="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 lg:p-2 lg:rounded-md lg:hover:bg-gray-50">
-                                        <img
-                                            className="h-8 w-8 rounded-full"
-                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                            alt=""
-                                        />
-                                        <span className="hidden ml-3 text-gray-700 text-sm font-medium lg:block">
-                                            <span className="sr-only">Open user menu for </span>Emilia Birch
+                                    <Menu.Button className="max-w-xs bg-white rounded-full flex items-center text-sm focus:outline-none lg:p-2 lg:rounded-md lg:hover:bg-gray-50">
+                                        <UserAvatar size="sm" />
+                                        <span className="hidden text-gray-700 text-sm font-medium lg:block">
+                                            <span className="sr-only">Open user menu for </span>
+                                            <Username name="tatendaZw" />
                                         </span>
                                         <ChevronDownIcon
                                             className="hidden flex-shrink-0 ml-1 h-5 w-5 text-gray-400 lg:block"
@@ -133,7 +123,7 @@ export default function Dashboard() {
                                         <Menu.Item>
                                             {({ active }) => (
                                                 <a
-                                                    href="#"
+                                                    href="/account"
                                                     className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                 >
                                                     Your Profile
@@ -143,7 +133,7 @@ export default function Dashboard() {
                                         <Menu.Item>
                                             {({ active }) => (
                                                 <a
-                                                    href="#"
+                                                    href="/dashboard/settings"
                                                     className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                 >
                                                     Settings
@@ -153,7 +143,7 @@ export default function Dashboard() {
                                         <Menu.Item>
                                             {({ active }) => (
                                                 <a
-                                                    href="#"
+                                                    href="/"
                                                     className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                 >
                                                     Logout
@@ -174,34 +164,22 @@ export default function Dashboard() {
                                 <div className="flex-1 min-w-0">
                                     {/* Profile */}
                                     <div className="flex items-center">
-                                        <img
-                                            className="hidden h-16 w-16 rounded-full sm:block"
-                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
-                                            alt=""
-                                        />
+                                        <div className="sm:block hidden rounded-full">
+                                            <UserAvatar size="lg" />
+                                        </div>
                                         <div>
                                             <div className="flex items-center">
-                                                <img
-                                                    className="h-16 w-16 rounded-full sm:hidden"
-                                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
-                                                    alt=""
-                                                />
+                                                <div className="sm:hidden rounded-full">
+                                                    <UserAvatar size="lg" />
+                                                </div>
                                                 <h1 className="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate">
                                                     Good morning, Emilia Birch
                                                 </h1>
                                             </div>
                                             <dl className="mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
-                                                <dt className="sr-only">Company</dt>
-                                                <dd className="flex items-center text-sm text-gray-500 font-medium capitalize sm:mr-6">
-                                                    <OfficeBuildingIcon
-                                                        className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
-                                                        aria-hidden="true"
-                                                    />
-                                                    Duke street studio
-                                                </dd>
                                                 <dt className="sr-only">Account status</dt>
                                                 <dd className="mt-3 flex items-center text-sm text-gray-500 font-medium sm:mr-6 sm:mt-0 capitalize">
-                                                    <CheckCircleIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400" aria-hidden="true" />
+                                                    <CheckCircleIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-blue-400" aria-hidden="true" />
                                                     Verified account
                                                 </dd>
                                             </dl>
@@ -209,18 +187,13 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                                 <div className="mt-6 flex space-x-3 md:mt-0 md:ml-4">
-                                    <button
-                                        type="button"
-                                        className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
-                                    >
-                                        Add money
-                                    </button>
-                                    <button
-                                        type="button"
-                                        className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
-                                    >
-                                        Send money
-                                    </button>
+
+                                    <div className="flex mr-2">
+                                        <BlueButton text="Add Product" outline />
+                                    </div>
+                                    <div className="flex">
+                                        <BlueButton text="Manage Account" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -250,7 +223,7 @@ export default function Dashboard() {
                                         </div>
                                         <div className="bg-gray-50 px-5 py-3">
                                             <div className="text-sm">
-                                                <a href={card.href} className="font-medium text-cyan-700 hover:text-cyan-900">
+                                                <a href={card.href} className="font-medium text-blue-primary hover:text-blue-secondary">
                                                     View all
                                                 </a>
                                             </div>
@@ -294,18 +267,12 @@ export default function Dashboard() {
                                 aria-label="Pagination"
                             >
                                 <div className="flex-1 flex justify-between">
-                                    <a
-                                        href="#"
-                                        className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
-                                    >
-                                        Previous
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500"
-                                    >
-                                        Next
-                                    </a>
+                                    <div className="flex mr-2">
+                                        <BlueButton text="Previous" outline />
+                                    </div>
+                                    <div className="flex">
+                                        <BlueButton text="Next" />
+                                    </div>
                                 </div>
                             </nav>
                         </div>
@@ -379,18 +346,12 @@ export default function Dashboard() {
                                                 </p>
                                             </div>
                                             <div className="flex-1 flex justify-between sm:justify-end">
-                                                <a
-                                                    href="#"
-                                                    className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-                                                >
-                                                    Previous
-                                                </a>
-                                                <a
-                                                    href="#"
-                                                    className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-                                                >
-                                                    Next
-                                                </a>
+                                                <div className="flex mr-2">
+                                                    <BlueButton text="Previous" outline />
+                                                </div>
+                                                <div className="flex">
+                                                    <BlueButton text="Next" />
+                                                </div>
                                             </div>
                                         </nav>
                                     </div>
