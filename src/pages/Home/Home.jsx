@@ -14,7 +14,7 @@ function Home() {
                 {/* // banner and categories */}
                 <div className="top w-full flex flex-row md:gap-8 gap-2">
                     <div className="md:w-1/5 md:flex hidden">
-                        <CategoriesDropdown />
+                        <CategoriesDropdown open={true} />
                     </div>
                     <div className="flex-1">
                         <SearchInput />

@@ -2,12 +2,10 @@ import React, { useState } from 'react'
 import { MenuIcon, ArrowRightIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { data } from '../../utils/data'
 
-
-
-function CategoriesDropdown() {
-    const [show_categories, setShowCategories] = useState(true)
+function CategoriesDropdown({open}) {
+    const [show_categories, setShowCategories] = useState(open)
     return (
-        <div onClick={show_categories ? () => setShowCategories(false) : () => setShowCategories(true)} className="w-full relative transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:transform-none flex flex-col">
+        <div onClick={show_categories ? () => setShowCategories(false) : () => setShowCategories(true)} className="w-full relative flex flex-col">
             <button className="flex flex-row items-center w-full justify-around bg-blue-primary md:p-3 p-2 rounded outline-none border-none">
                 <MenuIcon className="text-white " height={16} width={16} />
                 <p className="lg:flex md:hidden hidden capitalize text-white text-sm font-semibold">shop by categories</p>
@@ -16,7 +14,7 @@ function CategoriesDropdown() {
             </button>
             {
                 show_categories ? (
-                    <div className="absolute w-full bg-white border border-gray-300 rounded mt-16">
+                    <div className="absolute w-full bg-white border border-gray-300 rounded mt-12">
                         {
                             data.categories.map((category, index) => (
                                 <div key={index} className="flex flex-row items-center p-2 border-b border-gray-20 cursor-pointer hover:bg-gray-100">
