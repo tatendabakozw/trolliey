@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
-import { ShoppingCartIcon, UserIcon, HeartIcon, MenuIcon } from '@heroicons/react/outline'
+import { ShoppingCartIcon, HeartIcon } from '@heroicons/react/outline'
 import { useSelector } from 'react-redux'
 import CartSidebar from '../cart_sidebar/CartSidebar'
 import { useHistory } from 'react-router'
 import UserDropdown from '../dropdowns/UserDropdown'
+import MobileNavDrawer from '../drawers/MobileNavDrawer'
 
 function GeneralNavbar() {
 
@@ -28,15 +29,21 @@ function GeneralNavbar() {
                     {basket?.length}
                 </span>
             </div>
+
+            {/* //dropdown when suer icon has been presses */}
             <div className="md:flex hidden rounded-full cursor-pointer">
                 <UserDropdown/>
             </div>
+
+            {/* //drawer when on moblie view */}
             <div className="md:hidden flex">
-                <MenuIcon height={20} width={20} className="text-gray-700" />
+                <MobileNavDrawer />
             </div>
-            <>
+
+            {/* //sidebar when cart is open */}
+            <div>
                 <CartSidebar open={open_cart} setOpen={setOpenCart} cart={basket} />   
-            </>
+            </div>
         </div>
     )
 }
