@@ -9,11 +9,15 @@ import {
     ScaleIcon,
     UserGroupIcon,
     XIcon,
+    ClipboardListIcon
 } from '@heroicons/react/outline'
+import { useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const navigation = [
-    { name: 'Home', href: '/dashboard', icon: HomeIcon, current: true },
-    { name: 'History', href: 'dashboard/history', icon: ClockIcon, current: false },
+    { name: 'Home', href: '/dashboard', icon: HomeIcon, current: false },
+    { name: 'Inventory', href: '/dashboard/inventory', icon: ClipboardListIcon, current: false },
+    { name: 'History', href: '/dashboard/history', icon: ClockIcon, current: false },
     { name: 'Balances', href: '/dashboard/balances', icon: ScaleIcon, current: false },
     { name: 'Cards', href: '/dashboard/cards', icon: CreditCardIcon, current: false },
     { name: 'Recipients', href: '/dashboard/receipts', icon: UserGroupIcon, current: false },
@@ -22,11 +26,8 @@ const secondaryNavigation = [
     { name: 'Settings', href: '/dashboard/settings', icon: CogIcon },
 ]
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
-
 function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
+    const location = useLocation()
 
     return (
         <div className="h-screen bg-blue-primary">
@@ -79,18 +80,13 @@ function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
                             <nav className="mt-5 flex-shrink-0 h-full divide-y divide-blue-secondary overflow-y-auto" aria-label="Sidebar">
                                 <div className="px-2 space-y-1">
                                     {navigation.map((item) => (
-                                        <a
+                                        <Link to={item.href}
                                             key={item.name}
-                                            href={item.href}
-                                            className={classNames(
-                                                item.current ? 'bg-blue-secondary text-blue-light' : 'text-blue-light hover:text-blue-light hover:bg-blue-secondary',
-                                                'group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                                            )}
-                                            aria-current={item.current ? 'page' : undefined}
+                                            className={`${location.pathname === item.href ? "bg-blue-secondary" : "bg-blue-primary"} text-blue-light group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md`}
                                         >
                                             <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-blue-light" aria-hidden="true" />
                                             {item.name}
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                                 <div className="mt-6 pt-6">
@@ -127,18 +123,13 @@ function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
                         <nav className="mt-5 flex-1 flex flex-col divide-y divide-blue-secondary overflow-y-auto" aria-label="Sidebar">
                             <div className="px-2 space-y-1">
                                 {navigation.map((item) => (
-                                    <a
+                                    <Link to={item.href}
                                         key={item.name}
-                                        href={item.href}
-                                        className={classNames(
-                                            item.current ? 'bg-blue-secondary text-blue-light' : 'text-blue-light hover:text-blue-light hover:bg-blue-secondary',
-                                            'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md'
-                                        )}
-                                        aria-current={item.current ? 'page' : undefined}
-                                    > 
+                                        className={`${location.pathname === item.href ? "bg-blue-secondary" : "bg-blue-primary"} text-blue-light group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md`}
+                                    >
                                         <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-blue-light" aria-hidden="true" />
                                         {item.name}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                             <div className="mt-6 pt-6">
