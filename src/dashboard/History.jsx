@@ -1,10 +1,11 @@
 import React from 'react'
+import DashboardLayout from '../layouts/DashboardLayout'
 
 function History() {
     return (
-        <div>
+        <DashboardLayout>
             history
-        </div>
+        </DashboardLayout>
     )
 }
 

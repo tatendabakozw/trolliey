@@ -1,10 +1,11 @@
 import React from 'react'
+import DashboardLayout from '../layouts/DashboardLayout'
 
 function Cards() {
     return (
-        <div>
+        <DashboardLayout>
             cards
-        </div>
+        </DashboardLayout>
     )
 }
 

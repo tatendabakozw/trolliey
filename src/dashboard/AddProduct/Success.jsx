@@ -2,24 +2,24 @@ import React from 'react'
 import BlueButton from '../../components/buttons/BlueButton'
 import DashboardLayout from '../../layouts/DashboardLayout'
 
-function Pricing({ handleChange, values, prevStep, nextStep }) {
+function Success({ handleChange, values, prevStep }) {
     return (
         <DashboardLayout>
             <div className="p-4 h-full flex">
                 <div className="bg-white rounded flex-1">
                     <div className="flex-1 p-4 flex flex-col">
-                        pricing
+                        Success
                     </div>
                     <div className="border-t border-gray-200 p-4 flex flex-row items-center ">
-                        <div className="w-full justify-between flex flex-row items-center">
+                        <div className="flex w-full justify-between flex-row">
                             <div className="text-blue-primary text-sm">
                                 <p className="font-semibold">Tips</p>
-                                <p className="text-gray-400 text-xs">Price plays a major role in the success business</p>
+                                <p className="text-gray-400 text-xs">Make sure the details of the product are ad you want</p>
                             </div>
                             <div className="ml-auto flex flex-row items-center">
                                 <BlueButton text="Previous" outline onClick={() => prevStep()} />
                                 <div className="mx-2"></div>
-                                <BlueButton text="Next" onClick={() => nextStep()} />
+                                <BlueButton text="Next" className="opacity-50" />
                             </div>
                         </div>
                     </div>
@@ -29,4 +29,4 @@ function Pricing({ handleChange, values, prevStep, nextStep }) {
     )
 }
 
-export default Pricing
+export default Success

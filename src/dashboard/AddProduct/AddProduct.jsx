@@ -4,6 +4,7 @@ import DashboardLayout from '../../layouts/DashboardLayout'
 import Category from './Category';
 import Description from './Description';
 import Pricing from './Pricing';
+import Success from './Success';
 
 
 function AddProduct() {
@@ -98,6 +99,15 @@ function AddProduct() {
         case 3:
             return (
                 <Pricing
+                    prevStep={prevStep}
+                    nextStep={nextStep}
+                    handleChange={handleChange}
+                    values={values}
+                />
+            )
+        case 4:
+            return (
+                <Success
                     prevStep={prevStep}
                     handleChange={handleChange}
                     values={values}

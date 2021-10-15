@@ -1,10 +1,11 @@
 import React from 'react'
+import DashboardLayout from '../layouts/DashboardLayout'
 
 function Balances() {
     return (
-        <div>
+        <DashboardLayout>
             balances
-        </div>
+        </DashboardLayout>
     )
 }
 
