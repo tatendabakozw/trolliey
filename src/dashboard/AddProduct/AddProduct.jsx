@@ -12,6 +12,7 @@ function AddProduct() {
         step: 1,
         category: '',
         sub_category: '',
+        brand: '',
         category_picture: '',
         name: '',
         description: '',
@@ -38,13 +39,14 @@ function AddProduct() {
 
     // handle field change
     const handleChange = input => e => {
-        setState({ [input]: e.target.value });
+        setState((prev) => ({ ...prev, [input]: e.target.value }));
     }
 
     // desctructuring values from state
     const { step } = state;
 
-    const { category,
+    const {
+        category,
         sub_category,
         category_picture,
         name,
@@ -55,7 +57,9 @@ function AddProduct() {
         price,
         discount,
         in_stock,
-        pictures } = state;
+        pictures,
+        brand
+    } = state;
 
     const values = {
         category,
@@ -69,7 +73,8 @@ function AddProduct() {
         price,
         discount,
         in_stock,
-        pictures
+        pictures,
+        brand
     }
 
     switch (step) {
@@ -101,8 +106,8 @@ function AddProduct() {
         default:
             return (
                 <DashboardLayout>
-                    <div className="p-4">
-                        add product
+                    <div className="grid md:grid-cols-3 grid-cols-1 flex-row items-center mb-8">
+                        <p className="col-span-1 text-lg text-gray-700 font-semibold md:flex hidden">Your Inventory Page</p>
                     </div>
                 </DashboardLayout>
             )

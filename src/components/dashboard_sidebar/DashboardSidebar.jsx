@@ -135,7 +135,7 @@ function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
                             <div className="mt-6 pt-6">
                                 <div className="px-2 space-y-1">
                                     {secondaryNavigation.map((item) => (
-                                        <Link to={item.href}
+                                        <Link key={item.name} to={item.href}
                                             href={item.href}
                                             className={`${location.pathname === item.href ? "bg-blue-secondary" : "bg-blue-primary hover:bg-blue-secondary "} group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md text-blue-light hover:text-blue-light `}
                                         >

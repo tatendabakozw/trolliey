@@ -14,7 +14,7 @@ function Description({ nextStep, handleChange, values, prevStep }) {
                         <div className="flex w-full justify-between flex-row">
                             <div className="text-blue-primary text-sm">
                                 <p className="font-semibold">Tips</p>
-                                <p className="text-gray-400 text-xs">Price plays a major role in the success business</p>
+                                <p className="text-gray-400 text-xs">Keep the name short, buyers know what they want</p>
                             </div>
                             <div className="ml-auto flex flex-row items-center">
                                 <BlueButton text="Previous" outline onClick={() => prevStep()} />
