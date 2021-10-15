@@ -23,7 +23,7 @@ const navigation = [
     { name: 'Recipients', href: '/dashboard/receipts', icon: UserGroupIcon, current: false },
 ]
 const secondaryNavigation = [
-    { name: 'Settings', href: '/dashboard/settings', icon: CogIcon },
+    { name: 'Store Settings', href: '/dashboard/settings', icon: CogIcon },
 ]
 
 function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
@@ -74,9 +74,9 @@ function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
                                     </button>
                                 </div>
                             </Transition.Child>
-                            <div className="flex-shrink-0 flex items-center px-4">
+                            <Link to='/' className="cursor pointer flex-shrink-0 flex items-center px-4">
                                 <p className="text-white text-lg font-semibold text-center">logo</p>
-                            </div>
+                            </Link>
                             <nav className="mt-5 flex-shrink-0 h-full divide-y divide-blue-secondary overflow-y-auto" aria-label="Sidebar">
                                 <div className="px-2 space-y-1">
                                     {navigation.map((item) => (
@@ -117,15 +117,15 @@ function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
                 <div className="flex flex-col w-64">
                     {/* Sidebar component, swap this element with another sidebar if you like */}
                     <div className="flex flex-col flex-grow bg-blue-primary pt-5 pb-4 overflow-y-auto">
-                        <div className="flex items-center flex-shrink-0 px-4">
+                        <Link to='/' className="flex items-center flex-shrink-0 px-4">
                             <p className="text-white text-lg font-semibold text-center">logo</p>
-                        </div>
+                        </Link>
                         <nav className="mt-5 flex-1 flex flex-col divide-y divide-blue-secondary overflow-y-auto" aria-label="Sidebar">
                             <div className="px-2 space-y-1">
                                 {navigation.map((item) => (
                                     <Link to={item.href}
                                         key={item.name}
-                                        className={`${location.pathname === item.href ? "bg-blue-secondary" : "bg-blue-primary"} text-blue-light group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md`}
+                                        className={`${location.pathname === item.href ? "bg-blue-secondary" : "bg-blue-primary hover:bg-blue-secondary "} text-blue-light group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md`}
                                     >
                                         <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-blue-light" aria-hidden="true" />
                                         {item.name}
@@ -135,14 +135,13 @@ function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
                             <div className="mt-6 pt-6">
                                 <div className="px-2 space-y-1">
                                     {secondaryNavigation.map((item) => (
-                                        <a
-                                            key={item.name}
+                                        <Link to={item.href}
                                             href={item.href}
-                                            className="group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md text-blue-light hover:text-blue-light hover:bg-blue-secondary"
+                                            className={`${location.pathname === item.href ? "bg-blue-secondary" : "bg-blue-primary hover:bg-blue-secondary "} group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md text-blue-light hover:text-blue-light `}
                                         >
                                             <item.icon className="mr-4 h-6 w-6 text-blue-light" aria-hidden="true" />
                                             {item.name}
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                             </div>

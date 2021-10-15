@@ -5,7 +5,7 @@ function AddProduct() {
     return (
         <DashboardLayout>
             <div className="p-4">
-
+                add product
             </div>
         </DashboardLayout>
     )
