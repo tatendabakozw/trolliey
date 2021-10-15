@@ -3,11 +3,13 @@ import DashboardLayout from '../layouts/DashboardLayout'
 import { SearchIcon, PlusIcon } from '@heroicons/react/outline'
 import BlueButton from '../components/buttons/BlueButton'
 import InventoryTable from '../components/tables/InventoryTable'
+import { useHistory } from 'react-router'
 
 function Inventory() {
     const [query, setQuery] = useState('')
+    const history = useHistory()
 
-    const search_items_handler = (e) =>{
+    const search_items_handler = (e) => {
         e.preventDefault()
         setQuery('')
         console.log(query)
@@ -33,6 +35,7 @@ function Inventory() {
                             />
                         </form>
                         <BlueButton
+                            onClick={() => history.push('/dashboard/addproduct')}
                             className={'hover:text-white text-blue-primary'}
                             text={<div className="flex flex-row items-center">
                                 <p className="text-sm mr-2">Add</p>

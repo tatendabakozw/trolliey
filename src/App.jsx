@@ -9,6 +9,7 @@ import Balances from './dashboard/Balances';
 import Cards from './dashboard/Cards';
 import Receipts from './dashboard/Receipts';
 import Inventory from './dashboard/Inventory';
+import StoreInfo from './dashboard/StoreInfo';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/dashboard/balances' component={Balances} />
         <Route path='/dashboard/cards' component={Cards} />
         <Route path='/dashboard/receipts' component={Receipts} />
+        <Route path='/dashboard/settings' component={StoreInfo} />
         <Route path='/dashboard/inventory' component={Inventory} />
         <Route path='/dashboard' component={Dashboard} />
         <Route exact path='/' component={Home} />
