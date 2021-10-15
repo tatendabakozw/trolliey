@@ -1,4 +1,4 @@
-import { CashIcon, ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicons/react/outline'
+import { ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicons/react/outline'
 import React from 'react'
 import BlueButton from '../buttons/BlueButton'
 
@@ -9,7 +9,7 @@ const products = [
         brand: 'Nike',
         price: '$20,000',
         category: 'Fashion and beauty',
-        stock: '22',
+        stock: '12',
         orders: '2',
         datetime: '2020-07-11',
         date: 'July 11, 2020',
@@ -28,15 +28,15 @@ const products = [
         datetime: '2020-07-11',
         date: 'July 11, 2020',
         msrment: '',
-        status: 'public',
+        status: 'out_of_stock',
         currency: 'USD'
     },
 ]
 
 const statusStyles = {
     public: 'bg-green-100 text-green-800',
-    processing: 'bg-yellow-100 text-yellow-800',
-    failed: 'bg-gray-100 text-gray-800',
+    out_of_stock: 'bg-yellow-100 text-yellow-800',
+    private: 'bg-gray-100 text-gray-800',
 }
 
 function classNames(...classes) {
@@ -44,13 +44,14 @@ function classNames(...classes) {
 }
 
 function InventoryTable() {
+    const all_length = 200
     return (
         <div>
 
             {/* //on mobile view  */}
             <div className="shadow sm:hidden">
                 <ul className="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
-                    {products.map((product, index) => (
+                    {products?.map((product, index) => (
                         <li key={product.id}>
                             <div className="block px-4 py-4 bg-white hover:bg-gray-50">
                                 <span className="flex items-center space-x-4">
@@ -110,7 +111,7 @@ function InventoryTable() {
                                             Status
                                         </th>
                                         <th className="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Date
+                                            Orders
                                         </th>
                                         <th className="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Actions
@@ -118,7 +119,7 @@ function InventoryTable() {
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
-                                    {products.map((product, index) => (
+                                    {products?.map((product, index) => (
                                         <tr key={product.id} className="bg-white">
                                             <td className="max-w-0 w-full px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                 <div className="flex">
@@ -150,7 +151,7 @@ function InventoryTable() {
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
-                                                <time dateTime={product.datetime}>{product.date}</time>
+                                                <span >{product.orders}</span>
                                             </td>
                                             <td className="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500 mr-2">
                                                 <button className="bg-gray-200 outline-none rounded-full p-1 text-gray-500 hover:text-blue-primary">
@@ -171,8 +172,8 @@ function InventoryTable() {
                             >
                                 <div className="hidden sm:block">
                                     <p className="text-sm text-gray-700">
-                                        Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{' '}
-                                        <span className="font-medium">20</span> results
+                                        Showing <span className="font-medium">1</span> to <span className="font-medium">{products?.length}</span> of{' '}
+                                        <span className="font-medium">{all_length}</span> results
                                     </p>
                                 </div>
                                 <div className="flex-1 flex justify-between sm:justify-end">
