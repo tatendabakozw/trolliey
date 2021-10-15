@@ -10,7 +10,7 @@ import Cards from './dashboard/Cards';
 import Receipts from './dashboard/Receipts';
 import Inventory from './dashboard/Inventory';
 import StoreInfo from './dashboard/StoreInfo';
-import AddProduct from './dashboard/AddProduct';
+import AddProduct from './dashboard/AddProduct/AddProduct';
 
 function App() {
   return (
@@ -23,8 +23,8 @@ function App() {
         <Route path='/dashboard/cards' component={Cards} />
         <Route path='/dashboard/receipts' component={Receipts} />
         <Route path='/dashboard/settings' component={StoreInfo} />
-        <Route path='/dashboard/inventory' component={Inventory} />
         <Route path='/dashboard/addproduct' component={AddProduct} />
+        <Route path='/dashboard/inventory' component={Inventory} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/' component={Home} />
         <Route path='*' component={NotFound} />
