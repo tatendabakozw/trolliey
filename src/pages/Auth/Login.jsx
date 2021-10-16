@@ -1,8 +1,19 @@
 import React from 'react'
+import { useState } from 'react'
 import BlueButton from '../../components/buttons/BlueButton'
 import GeneralLayout from '../../layouts/GeneralLayout'
+import { EyeIcon, EyeOffIcon } from '@heroicons/react/outline'
+
 
 function Login() {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [show_password, setShowPassword] = useState(false)
+
+    const login_user_handler = () =>{
+        console.log(email, password)
+    }
+
     return (
         <GeneralLayout no_text>
             <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -13,7 +24,7 @@ function Login() {
 
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                        <form className="space-y-6" action="#" method="POST">
+                        <form onSubmit={login_user_handler} className="space-y-6" >
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                     Email address
@@ -22,6 +33,8 @@ function Login() {
                                     <input
                                         id="email"
                                         name="email"
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
                                         type="email"
                                         autoComplete="email"
                                         required
@@ -35,14 +48,28 @@ function Login() {
                                     Password
                                 </label>
                                 <div className="mt-1">
-                                    <input
-                                        id="password"
-                                        name="password"
-                                        type="password"
-                                        autoComplete="current-password"
-                                        required
-                                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm"
-                                    />
+                                    <div className="flex flex-row items-center border border-gray-300 rounded-md shadow-sm px-3 ">
+                                        <input
+                                            id="password"
+                                            name="password"
+                                            type={show_password ? "text" : "password"}
+                                            value={password}
+                                            onChange={e => setPassword(e.target.value)}
+                                            required
+                                            className="appearance-none block w-full py-2  placeholder-gray-400 focus:outline-none sm:text-sm"
+                                        />
+                                        {
+                                            show_password ? (
+                                                <div onClick={() => setShowPassword(false)}>
+                                                    <EyeOffIcon height={20} width={20} className="text-gray-400" />
+                                                </div>
+                                            ) : (
+                                                <div onClick={() => setShowPassword(true)}>
+                                                    <EyeIcon height={20} width={20} className="text-gray-400" />
+                                                </div>
+                                            )
+                                        }
+                                    </div>
                                 </div>
                             </div>
 
@@ -71,7 +98,7 @@ function Login() {
                             </div>
                         </form>
 
-                        
+
                     </div>
                 </div>
             </div>

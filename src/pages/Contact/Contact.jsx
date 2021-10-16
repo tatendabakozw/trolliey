@@ -20,7 +20,7 @@ const Contact = () => {
     }
 
     return (
-        <GeneralLayout>
+        <GeneralLayout  no_text>
             <div className="">
                 <main className="overflow-hidden">
                     {/* Header */}
