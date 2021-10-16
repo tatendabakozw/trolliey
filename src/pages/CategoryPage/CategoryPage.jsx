@@ -14,6 +14,7 @@ function CategoryPage() {
                         <CategoriesDropdown />
 
                         <p className="text text-gray-700 mt-8 font-semibold pb-4 border-b border-blue-primary">Refine Search</p>
+                        <p>ads and filters go here</p>
                     </div>
                     <div className="flex-1">
                         <SearchInput />

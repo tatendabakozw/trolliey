@@ -12,6 +12,8 @@ import Inventory from './dashboard/Inventory';
 import StoreInfo from './dashboard/StoreInfo';
 import AddProduct from './dashboard/AddProduct/AddProduct';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
+import About from './pages/About/About';
+import Jobs from './pages/Jobs/Jobs';
 
 function App() {
   return (
@@ -27,7 +29,10 @@ function App() {
         <Route path='/dashboard/addproduct' component={AddProduct} />
         <Route path='/dashboard/inventory' component={Inventory} />
         <Route path='/category' component={CategoryPage} />
+        <Route path='/about' component={About} />
         <Route exact path='/dashboard' component={Dashboard} />
+        <Route exact path='/explore' component={Home} />
+        <Route exact path='/jobs' component={Jobs} />
         <Route exact path='/' component={Home} />
         <Route path='*' component={NotFound} />
       </Switch>
