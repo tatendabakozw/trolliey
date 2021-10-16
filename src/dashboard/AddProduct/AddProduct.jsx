@@ -23,7 +23,8 @@ function AddProduct() {
         price: '',
         discount: '',
         in_stock: '',
-        pictures: ''
+        pictures: '',
+        sub_title:''
     })
 
     // go back to previous page
@@ -59,7 +60,8 @@ function AddProduct() {
         discount,
         in_stock,
         pictures,
-        brand
+        brand,
+        sub_title
     } = state;
 
     const values = {
@@ -75,7 +77,8 @@ function AddProduct() {
         discount,
         in_stock,
         pictures,
-        brand
+        brand,
+        sub_title
     }
 
     switch (step) {
