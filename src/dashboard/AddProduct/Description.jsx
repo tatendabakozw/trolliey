@@ -1,8 +1,12 @@
 import React from 'react'
 import BlueButton from '../../components/buttons/BlueButton'
+import Tags from '../../components/tags/Tags';
 import DashboardLayout from '../../layouts/DashboardLayout'
 
-function Description({ nextStep, handleChange, values, prevStep }) {
+function Description({ nextStep, handleChange, values, prevStep, setAdditional_features }) {
+    const selectedTags = (tags) => {
+        setAdditional_features(tags)
+    };
     return (
         <DashboardLayout>
             <div className="p-4 h-full flex">
@@ -82,26 +86,37 @@ function Description({ nextStep, handleChange, values, prevStep }) {
                             </div>
 
                         </div>
+
                         <div className=" gap-4 mb-8">
                             <div className="col-span-1">
                                 <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                                    Does your product have any additional features?
+                                </label>
+                                <Tags
+                                    selectedTags={selectedTags}
+                                    className=""
+                                />
+                            </div>
+                        </div>
+
+
+                        <div className=" gap-4 mb-8">
+                            <div className="col-span-1">
+                                <label htmlFor="description" className="block text-sm font-medium text-gray-700 capitalize">
                                     Description
                                 </label>
                                 <textarea
                                     rows={10}
-                                    id="brand"
-                                    value={values.stock}
-                                    onChange={handleChange('stock')}
+                                    id="description"
+                                    value={values.description}
+                                    onChange={handleChange('description')}
                                     name="stock"
-                                    type="number"
+                                    type="text"
                                     className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
                                     placeholder="Give a thorough description of your product"
                                 />
                             </div>
-
-
                         </div>
-                        
                     </div>
                     <div className="border-t border-gray-200 p-4 flex flex-row items-center ">
                         <div className="flex w-full justify-between flex-row">
@@ -110,9 +125,9 @@ function Description({ nextStep, handleChange, values, prevStep }) {
                                 <p className="text-gray-400 text-xs">Keep the name short, buyers know what they want</p>
                             </div>
                             <div className="ml-auto flex flex-row items-center">
-                                <BlueButton text="Previous" outline onClick={() => prevStep()} />
+                                <BlueButton text="Previous" outline onClick={() => prevStep(values)} />
                                 <div className="mx-2"></div>
-                                <BlueButton text="Next" onClick={() => nextStep()} />
+                                <BlueButton text="Next" onClick={() => nextStep(values)} />
                             </div>
                         </div>
                     </div>

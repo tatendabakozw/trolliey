@@ -3,13 +3,13 @@ import BlueButton from '../../components/buttons/BlueButton'
 import DashboardLayout from '../../layouts/DashboardLayout'
 import { useDropzone } from 'react-dropzone'
 
-function Category({ nextStep, handleChange, values }) {
+function Category({ nextStep, handleChange, values, setPictures }) {
 
     const maxSize = 1048576;
     const onDrop = useCallback(acceptedFiles => {
-        console.log(acceptedFiles);
-    }, []);
-
+        // console.log(acceptedFiles);
+        setPictures(acceptedFiles)
+    }, [setPictures]);
 
     const { isDragActive, getRootProps, getInputProps, isDragReject, acceptedFiles, rejectedFiles } = useDropzone({
         onDrop,
@@ -35,9 +35,9 @@ function Category({ nextStep, handleChange, values }) {
                                     </label>
                                     <select
                                         id="category"
+                                        name="category"
                                         value={values.category}
                                         onChange={handleChange('category')}
-                                        name="category"
                                         className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
                                     >
                                         <option>USA</option>
@@ -144,7 +144,7 @@ function Category({ nextStep, handleChange, values }) {
                             <div className="ml-auto flex flex-row items-center">
                                 <BlueButton text="Previous" outline className="opacity-50" />
                                 <div className="mx-2"></div>
-                                <BlueButton text="Next" onClick={() => nextStep()} />
+                                <BlueButton text="Next" onClick={() => nextStep(values)} />
                             </div>
                         </div>
                     </div>

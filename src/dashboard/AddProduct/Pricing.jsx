@@ -7,8 +7,89 @@ function Pricing({ handleChange, values, prevStep, nextStep }) {
         <DashboardLayout>
             <div className="p-4 h-full flex">
                 <div className="bg-white rounded flex-1">
-                    <div className="flex-1 p-4 flex flex-col">
-                        pricing
+                    <div className="flex-1 p-4 flex flex-col capitalize text-lg text-gray-700">
+                        pricing and shipping
+                    </div>
+                    <div className="border-b border-gray-200 "></div>
+                    <div className="mx-4 grid grid-cols-2 gap-4 my-8">
+                        <div className="col-span-1">
+                            <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                                item price
+                            </label>
+                            <input
+                                id="brand"
+                                value={values.stock}
+                                onChange={handleChange('stock')}
+                                name="stock"
+                                type="number"
+                                className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
+                                placeholder="$0"
+                            />
+                        </div>
+                        <div className="col-span-1">
+                            <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                                item discount price (optional)
+                            </label>
+                            <input
+                                id="brand"
+                                value={values.stock}
+                                onChange={handleChange('stock')}
+                                name="stock"
+                                type="number"
+                                className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
+                                placeholder="$0"
+                            />
+                        </div>
+                    </div>
+                    <div className="m-4 grid grid-cols-2 gap-4 mb-8">
+                        <div className="col-span-1">
+                            <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                                Do your offer shipping?
+                            </label>
+                            <select
+                                id="type"
+                                name="type"
+                                value={values.type}
+                                onChange={handleChange('type')}
+                                className="mt-1 block w-full pl-3 pr-10 p-2 text-base border border-gray-200 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                            >
+                                <option>yes</option>
+                                <option>no</option>
+                                <option>on bulk goods</option>
+                                <option>only on subscribers</option>
+                            </select>
+                        </div>
+                        <div className="col-span-1">
+                            <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                                How much more for shipping?
+                            </label>
+                            <input
+                                id="brand"
+                                value={values.stock}
+                                onChange={handleChange('stock')}
+                                name="stock"
+                                type="number"
+                                className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
+                                placeholder="$0"
+                            />
+                        </div>
+                    </div>
+                    <div className="m-4 grid grid-cols-2 gap-4 mb-8">
+                        <div className="col-span-1">
+                            <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                                What areas do you ship to?
+                            </label>
+                            <input
+                                id="brand"
+                                value={values.stock}
+                                onChange={handleChange('stock')}
+                                name="stock"
+                                type="text"
+                                className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
+                                placeholder="Everywhere"
+                            />
+                        </div>
+                        
                     </div>
                     <div className="border-t border-gray-200 p-4 flex flex-row items-center ">
                         <div className="w-full justify-between flex flex-row items-center">
@@ -17,9 +98,9 @@ function Pricing({ handleChange, values, prevStep, nextStep }) {
                                 <p className="text-gray-400 text-xs">Price plays a major role in the success business</p>
                             </div>
                             <div className="ml-auto flex flex-row items-center">
-                                <BlueButton text="Previous" outline onClick={() => prevStep()} />
+                                <BlueButton text="Previous" outline onClick={() => prevStep(values)} />
                                 <div className="mx-2"></div>
-                                <BlueButton text="Next" onClick={() => nextStep()} />
+                                <BlueButton text="Next" onClick={() => nextStep(values)} />
                             </div>
                         </div>
                     </div>

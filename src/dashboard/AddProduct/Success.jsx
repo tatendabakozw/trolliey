@@ -1,8 +1,12 @@
 import React from 'react'
+import { useEffect } from 'react'
 import BlueButton from '../../components/buttons/BlueButton'
 import DashboardLayout from '../../layouts/DashboardLayout'
 
-function Success({ handleChange, values, prevStep }) {
+function Success({ values, prevStep, pictures, additional_features }) {
+    useEffect(()=>{
+        console.log(pictures, additional_features, values)
+    },[values])
     return (
         <DashboardLayout>
             <div className="p-4 h-full flex">
@@ -17,7 +21,7 @@ function Success({ handleChange, values, prevStep }) {
                                 <p className="text-gray-400 text-xs">Make sure the details of the product are ad you want</p>
                             </div>
                             <div className="ml-auto flex flex-row items-center">
-                                <BlueButton text="Previous" outline onClick={() => prevStep()} />
+                                <BlueButton text="Previous" outline onClick={() => prevStep(values)} />
                                 <div className="mx-2"></div>
                                 <BlueButton text="Next" className="opacity-50" />
                             </div>

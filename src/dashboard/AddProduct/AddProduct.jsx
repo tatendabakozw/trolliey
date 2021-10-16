@@ -8,9 +8,11 @@ import Success from './Success';
 
 
 function AddProduct() {
+    const [additional_features, setAdditional_features] = useState([])
+    const [pictures, setPictures] = useState([])
+    const [step, setActiveStep] = useState(1);
 
     const [state, setState] = useState({
-        step: 1,
         category: '',
         sub_category: '',
         brand: '',
@@ -19,33 +21,29 @@ function AddProduct() {
         description: '',
         condition: '',
         type: '',
-        subtitile: '',
+        title: '',
         price: '',
         discount: '',
         in_stock: '',
-        pictures: '',
-        sub_title:''
+        sub_title:'',
     })
 
     // go back to previous page
-    const prevStep = () => {
-        const { step } = state;
-        setState({ step: step - 1 });
+    const prevStep = (new_values) => {
+        setState({...state, ...new_values });
+        setActiveStep(step + 1)
     }
 
     // proceed to the next step
-    const nextStep = () => {
-        const { step } = state;
-        setState({ step: step + 1 });
+    const nextStep = (new_values) => {
+        setState({...state, ...new_values });
+        setActiveStep(step + 1)
     }
 
     // handle field change
     const handleChange = input => e => {
         setState((prev) => ({ ...prev, [input]: e.target.value }));
     }
-
-    // desctructuring values from state
-    const { step } = state;
 
     const {
         category,
@@ -55,13 +53,12 @@ function AddProduct() {
         description,
         condition,
         type,
-        subtitile,
+        title,
         price,
         discount,
         in_stock,
-        pictures,
         brand,
-        sub_title
+        sub_title,
     } = state;
 
     const values = {
@@ -72,13 +69,12 @@ function AddProduct() {
         description,
         condition,
         type,
-        subtitile,
+        title,
         price,
         discount,
         in_stock,
-        pictures,
         brand,
-        sub_title
+        sub_title,
     }
 
     switch (step) {
@@ -88,6 +84,7 @@ function AddProduct() {
                     nextStep={nextStep}
                     handleChange={handleChange}
                     values={values}
+                    setPictures={setPictures}
                 />
             )
         case 2:
@@ -97,6 +94,7 @@ function AddProduct() {
                     handleChange={handleChange}
                     prevStep={prevStep}
                     values={values}
+                    setAdditional_features={setAdditional_features}
                 />
             )
         case 3:
@@ -114,6 +112,8 @@ function AddProduct() {
                     prevStep={prevStep}
                     handleChange={handleChange}
                     values={values}
+                    additional_features={additional_features}
+                    pictures={pictures}
                 />
             )
         default:
