@@ -56,14 +56,14 @@ function Description({ nextStep, handleChange, values, prevStep, setAdditional_f
                         </div>
                         <div className="grid md:grid-cols-3 col-span-1 gap-4 mb-8">
                             <div className="col-span-1">
-                                <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                                <label htmlFor="in_stock" className="block text-sm font-medium text-gray-700 capitalize">
                                     amount In stock
                                 </label>
                                 <input
-                                    id="brand"
-                                    value={values.stock}
-                                    onChange={handleChange('stock')}
-                                    name="stock"
+                                    id="in_stock"
+                                    value={values.in_stock}
+                                    onChange={handleChange('in_stock')}
+                                    name="in_stock"
                                     type="number"
                                     className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
                                     placeholder="0"

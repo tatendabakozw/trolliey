@@ -13,28 +13,28 @@ function Pricing({ handleChange, values, prevStep, nextStep }) {
                     <div className="border-b border-gray-200 "></div>
                     <div className="mx-4 grid grid-cols-2 gap-4 my-8">
                         <div className="col-span-1">
-                            <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                            <label htmlFor="price" className="block text-sm font-medium text-gray-700 capitalize">
                                 item price
                             </label>
                             <input
-                                id="brand"
+                                id="price"
                                 value={values.stock}
-                                onChange={handleChange('stock')}
-                                name="stock"
+                                onChange={handleChange('price')}
+                                name="price"
                                 type="number"
                                 className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
                                 placeholder="$0"
                             />
                         </div>
                         <div className="col-span-1">
-                            <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                            <label htmlFor="discount" className="block text-sm font-medium text-gray-700 capitalize">
                                 item discount price (optional)
                             </label>
                             <input
-                                id="brand"
-                                value={values.stock}
-                                onChange={handleChange('stock')}
-                                name="stock"
+                                id="discount"
+                                value={values.discount}
+                                onChange={handleChange('discount')}
+                                name="discount"
                                 type="number"
                                 className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
                                 placeholder="$0"
@@ -43,15 +43,15 @@ function Pricing({ handleChange, values, prevStep, nextStep }) {
                     </div>
                     <div className="m-4 grid grid-cols-2 gap-4 mb-8">
                         <div className="col-span-1">
-                            <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                            <label htmlFor="shipping_offered" className="block text-sm font-medium text-gray-700 capitalize">
                                 Do your offer shipping?
                             </label>
                             <select
-                                id="type"
-                                name="type"
+                                id="shipping_offered"
+                                name="shipping_offered"
                                 value={values.type}
-                                onChange={handleChange('type')}
-                                className="mt-1 block w-full pl-3 pr-10 p-2 text-base border border-gray-200 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                                onChange={handleChange('shipping_offered')}
+                                className="mt-1 block w-full pl-3 pr-10 p-2 text-base border border-gray-200 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md capitalize"
                             >
                                 <option>yes</option>
                                 <option>no</option>
@@ -60,14 +60,14 @@ function Pricing({ handleChange, values, prevStep, nextStep }) {
                             </select>
                         </div>
                         <div className="col-span-1">
-                            <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                            <label htmlFor="shipping_price" className="block text-sm font-medium text-gray-700 capitalize">
                                 How much more for shipping?
                             </label>
                             <input
-                                id="brand"
-                                value={values.stock}
-                                onChange={handleChange('stock')}
-                                name="stock"
+                                id="shipping_price"
+                                value={values.shipping_price}
+                                onChange={handleChange('shipping_price')}
+                                name="shipping_price"
                                 type="number"
                                 className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
                                 placeholder="$0"
@@ -76,14 +76,14 @@ function Pricing({ handleChange, values, prevStep, nextStep }) {
                     </div>
                     <div className="m-4 grid grid-cols-2 gap-4 mb-8">
                         <div className="col-span-1">
-                            <label htmlFor="brand" className="block text-sm font-medium text-gray-700 capitalize">
+                            <label htmlFor="shipping_radius" className="block text-sm font-medium text-gray-700 capitalize">
                                 What areas do you ship to?
                             </label>
                             <input
-                                id="brand"
-                                value={values.stock}
-                                onChange={handleChange('stock')}
-                                name="stock"
+                                id="shipping_radius"
+                                value={values.shipping_radius}
+                                onChange={handleChange('shipping_radius')}
+                                name="shipping_radius"
                                 type="text"
                                 className="mt-1 w-full p-2 text-base border border-gray-200 focus:outline-none sm:text-sm rounded-md"
                                 placeholder="Everywhere"

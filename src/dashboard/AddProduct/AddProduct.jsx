@@ -16,7 +16,6 @@ function AddProduct() {
         category: '',
         sub_category: '',
         brand: '',
-        category_picture: '',
         name: '',
         description: '',
         condition: '',
@@ -26,12 +25,15 @@ function AddProduct() {
         discount: '',
         in_stock: '',
         sub_title:'',
+        shipping_offered: '',
+        shipping_price: '',
+        shipping_radius:''
     })
 
     // go back to previous page
     const prevStep = (new_values) => {
         setState({...state, ...new_values });
-        setActiveStep(step + 1)
+        setActiveStep(step - 1)
     }
 
     // proceed to the next step
@@ -48,7 +50,6 @@ function AddProduct() {
     const {
         category,
         sub_category,
-        category_picture,
         name,
         description,
         condition,
@@ -59,12 +60,14 @@ function AddProduct() {
         in_stock,
         brand,
         sub_title,
+        shipping_offered,
+        shipping_price,
+        shipping_radius
     } = state;
 
     const values = {
         category,
         sub_category,
-        category_picture,
         name,
         description,
         condition,
@@ -75,6 +78,9 @@ function AddProduct() {
         in_stock,
         brand,
         sub_title,
+        shipping_offered,
+        shipping_price,
+        shipping_radius
     }
 
     switch (step) {

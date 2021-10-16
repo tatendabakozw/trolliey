@@ -1,12 +1,11 @@
 import React from 'react'
-import { useEffect } from 'react'
 import BlueButton from '../../components/buttons/BlueButton'
 import DashboardLayout from '../../layouts/DashboardLayout'
 
 function Success({ values, prevStep, pictures, additional_features }) {
-    useEffect(()=>{
+    const save_product = () =>{
         console.log(pictures, additional_features, values)
-    },[values])
+    }
     return (
         <DashboardLayout>
             <div className="p-4 h-full flex">
@@ -23,7 +22,7 @@ function Success({ values, prevStep, pictures, additional_features }) {
                             <div className="ml-auto flex flex-row items-center">
                                 <BlueButton text="Previous" outline onClick={() => prevStep(values)} />
                                 <div className="mx-2"></div>
-                                <BlueButton text="Next" className="opacity-50" />
+                                <BlueButton text="Save Product" onClick={save_product} />
                             </div>
                         </div>
                     </div>
