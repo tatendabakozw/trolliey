@@ -14,6 +14,8 @@ import AddProduct from './dashboard/AddProduct/AddProduct';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
 import About from './pages/About/About';
 import Jobs from './pages/Jobs/Jobs';
+import Login from './pages/Auth/Login';
+import Register from './pages/Auth/Register';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
       <Switch>
         <Route path='/product/description/:id' component={ProductDescription} />
         <Route path='/contact' component={Contact} />
+        <Route path='/login' component={Login} />
+        <Route path='/register' component={Register} />
         <Route path='/dashboard/history' component={History} />
         <Route path='/dashboard/balances' component={Balances} />
         <Route path='/dashboard/cards' component={Cards} />
