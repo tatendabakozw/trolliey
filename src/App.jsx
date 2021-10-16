@@ -11,6 +11,7 @@ import Receipts from './dashboard/Receipts';
 import Inventory from './dashboard/Inventory';
 import StoreInfo from './dashboard/StoreInfo';
 import AddProduct from './dashboard/AddProduct/AddProduct';
+import CategoryPage from './pages/CategoryPage/CategoryPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/dashboard/settings' component={StoreInfo} />
         <Route path='/dashboard/addproduct' component={AddProduct} />
         <Route path='/dashboard/inventory' component={Inventory} />
+        <Route path='/category' component={CategoryPage} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/' component={Home} />
         <Route path='*' component={NotFound} />
