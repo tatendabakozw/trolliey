@@ -18,7 +18,7 @@ function Home() {
                     </div>
                     <div className="flex-1">
                         <SearchInput />
-                        <div className="flex content-center items-center overflow-hidden mt-4 rounded w-full max-h-96 h-96 bg-green-100">
+                        <div className="flex content-center items-center overflow-hidden mt-4 rounded w-full max-h-96 h-96 bg-gray-100">
                             <img src={banner} alt="banner showing ads for the home page" className="flex-1 max-h-full flex-shrink-0 object-cover w-auto h-auto" />
                         </div>
                     </div>

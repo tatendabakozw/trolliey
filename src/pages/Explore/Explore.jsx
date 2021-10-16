@@ -5,7 +5,7 @@ import SearchInput from '../../components/search/SearchInput'
 import GeneralLayout from '../../layouts/GeneralLayout'
 import { data } from '../../utils/data'
 
-function CategoryPage() {
+function Explore() {
     return (
         <GeneralLayout>
             <div className="bg-white md:p-8 p-2 rounded">
@@ -42,4 +42,4 @@ function CategoryPage() {
     )
 }
 
-export default CategoryPage
+export default Explore

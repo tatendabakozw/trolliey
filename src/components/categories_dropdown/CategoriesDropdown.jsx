@@ -19,7 +19,7 @@ function CategoriesDropdown({open}) {
                     <div className="absolute w-full bg-white border border-gray-300 rounded mt-12">
                         {
                             data.categories.map((category, index) => (
-                                <div key={index} onClick={() => history.push('/category')} className="flex flex-row items-center p-2 border-b border-gray-20 cursor-pointer hover:bg-gray-100">
+                                <div key={index} onClick={() => history.push('/explore')} className="flex flex-row items-center p-2 border-b border-gray-20 cursor-pointer hover:bg-gray-100">
                                     <ArrowRightIcon className="text-gray-700 mr-3" height={12} width={12} />
                                     <p className="text-gray-700 text-sm font-semibold">{category.name}</p>
                                     <div className="flex-1"></div>

@@ -1,18 +1,18 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import BlueButton from '../buttons/BlueButton'
 
 const navigation = {
     main: [
-        { name: 'About', href: '/howitworks' },
+        { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
         { name: 'Jobs', href: '/jobs' },
         { name: 'Explore', href: '/explore' },
         { name: 'Join', href: '/register' },
     ],
     auth_main: [
-        { name: 'About', href: '/howitworks' },
+        { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
         { name: 'Jobs', href: '/jobs' },
         { name: 'Explore', href: '/explore' },
@@ -77,9 +77,9 @@ export default function Footer() {
                 <nav className="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
                     {navigation.main.map((item) => (
                         <div key={item.name} className="px-5 py-2">
-                            <Link to={`${item.href}`} className="text-base text-gray-500 hover:text-gray-900">
+                            <a href={`${item.href}`} className="text-base text-gray-500 hover:text-gray-900">
                                 {item.name}
-                            </Link>
+                            </a>
                         </div>
                     ))}
                 </nav>
