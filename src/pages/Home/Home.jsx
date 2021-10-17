@@ -18,14 +18,14 @@ function Home() {
                     </div>
                     <div className="flex-1">
                         <SearchInput />
-                        <div className="flex content-center items-center overflow-hidden mt-4 rounded w-full max-h-96 h-96 bg-gray-100">
+                        <div className="flex content-center items-center overflow-hidden mt-4 rounded w-full md:max-h-96 max-h-48 md:h-96 h-auto bg-gray-100">
                             <img src={banner} alt="banner showing ads for the home page" className="flex-1 max-h-full flex-shrink-0 object-cover w-auto h-auto" />
                         </div>
                     </div>
                 </div>
 
                 {/* //benefits */}
-                <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:py-16 pt-16 pb-4 md:border-b border-b-none border-gray-200 items-center">
+                <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:py-16 md:pt-16 pt-8 pb-4 md:border-b border-b-none border-gray-200 items-center">
                     {
                         data.benefits.map((benefit, index) => (
                             <div key={index} className="col-span-1 flex md:flex-row flex-col md:border-none border-b border-gray-200 md:pb-0 pb-4 text-red-400 hover:text-blue-primary cursor-pointer">
@@ -67,8 +67,8 @@ function Home() {
                     </div>
                 </div>
 
-                 {/* //two exclusive categories */}
-                 <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 md:pt-16 pt-8">
+                {/* //two exclusive categories */}
+                <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 md:pt-16 pt-8">
                     <div className="md:col-span-2 col-start-1 bg-blue-200 rounded md:h-40 h-32"></div>
                     <div className="col-span-1 bg-yellow-200 rounded md:h-40 h-32"></div>
                 </div>
@@ -100,8 +100,8 @@ function Home() {
                     <div className="md:col-span-2 col-start-1 bg-yellow-200 rounded md:h-40 h-32"></div>
                 </div>
 
-                 {/* // featured products */}
-                 <div className="items flex-col">
+                {/* // featured products */}
+                <div className="items flex-col">
                     <p className="text-lg font-semibold text-gray-700 capitalize py-8">Latest products</p>
                     <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-4">
                         {
