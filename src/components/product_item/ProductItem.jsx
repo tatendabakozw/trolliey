@@ -4,6 +4,7 @@ import RedButton from '../buttons/RedButton'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { add_to_cart_Action } from '../../redux/actions/cartActions'
+import BlackButton from '../buttons/BlackButton'
 
 function ProductItem({picture, rating, name, description, price, discount_price, dicount, id}) {
     const dispatch = useDispatch()
@@ -40,7 +41,7 @@ function ProductItem({picture, rating, name, description, price, discount_price,
             </div>
 
             <div className="flex mt-1">
-                <RedButton text="add to cart" onClick={add_to_cart} />
+                <BlackButton text="add to cart" onClick={add_to_cart} />
             </div>
         </div>
     )
