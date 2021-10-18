@@ -28,7 +28,7 @@ function Home() {
                 <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:py-16 md:pt-16 pt-8 pb-4 md:border-b border-b-none border-gray-200 items-center">
                     {
                         data.benefits.map((benefit, index) => (
-                            <div key={index} className="col-span-1 flex md:flex-row flex-col md:border-none border-b border-gray-200 md:pb-0 pb-4 text-new-primary hover:text-blue-primary cursor-pointer">
+                            <div key={index} className="col-span-1 flex md:flex-row flex-col md:border-none border-b border-gray-200 md:pb-0 pb-4 text-blue-primary hover:text-new-primary cursor-pointer">
                                 {benefit.icon}
                                 <div className="flex flex-col">
                                     <p className="text-gray-700 font-semibold capitalize">{benefit.heading}</p>
