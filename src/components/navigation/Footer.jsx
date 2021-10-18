@@ -66,7 +66,7 @@ export default function Footer() {
 
     return (
         <footer className="bg-white">
-            <div className="bg-gradient-to-r from-new-light to-new-primary h-20 flex md:flex-row flex-col items-center justify-between lg:px-32 md:px-16 px-2">
+            <div className="bg-gradient-to-r from-new-light to-new-primary h-20 flex flex-row items-center justify-between lg:px-32 md:px-16 px-2">
                 <div onClick={() => history.push('/')} className="md:flex hidden md:mr-16 mr-2">
                     <img src={logo} alt="logo representing the website icon" className="h-24" />
                 </div>
@@ -74,7 +74,7 @@ export default function Footer() {
                     <input type="text" className="p-2 rounded bg-white outline-none md:mr-4 mr-2 flex-1" placeholder="Type message ..." />
                     <BlueButton text="Submit" />
                 </div>
-                <div className="flex ml-8">
+                <div className="flex md:ml-8 ml-4">
                     <div className="flex flex-row items-center">
                         <div className="bg-new-light p-2 mr-2 rounded-full">
                             <img src={android} className="h-6" alt="download android app from store" />
