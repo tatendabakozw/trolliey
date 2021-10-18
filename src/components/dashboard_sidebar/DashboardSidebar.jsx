@@ -13,6 +13,7 @@ import {
 } from '@heroicons/react/outline'
 import { useLocation } from 'react-router'
 import { Link } from 'react-router-dom'
+import logo from '../../assets/icon.png'
 
 const navigation = [
     { name: 'Home', href: '/dashboard', icon: HomeIcon, current: false },
@@ -70,21 +71,21 @@ function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
                                         onClick={() => setSidebarOpen(false)}
                                     >
                                         <span className="sr-only">Close sidebar</span>
-                                        <XIcon className="h-6 w-6 text-blue-light" aria-hidden="true" />
+                                        <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
                                     </button>
                                 </div>
                             </Transition.Child>
                             <Link to='/' className="cursor pointer flex-shrink-0 flex items-center px-4">
-                                <p className="text-white text-lg font-semibold text-center">logo</p>
+                                <img src={logo} alt="dashboard indicator of site name" className="self-center mx-auto h-28 my-4" />
                             </Link>
-                            <nav className="mt-5 flex-shrink-0 h-full divide-y divide-blue-secondary overflow-y-auto" aria-label="Sidebar">
+                            <nav className="mt-5 flex-shrink-0 h-full divide-y divide-blue-dark overflow-y-auto" aria-label="Sidebar">
                                 <div className="px-2 space-y-1">
                                     {navigation.map((item) => (
                                         <Link to={item.href}
                                             key={item.name}
-                                            className={`${location.pathname === item.href ? "bg-blue-secondary" : "bg-blue-primary"} text-blue-light group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md`}
+                                            className={`${location.pathname === item.href ? "bg-blue-dark" : "bg-blue-primary"} text-white group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md`}
                                         >
-                                            <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-blue-light" aria-hidden="true" />
+                                            <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-white" aria-hidden="true" />
                                             {item.name}
                                         </Link>
                                     ))}
@@ -95,9 +96,9 @@ function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
                                             <a
                                                 key={item.name}
                                                 href={item.href}
-                                                className="group flex items-center px-2 py-2 text-base font-medium rounded-md text-blue-light hover:text-blue-light hover:bg-blue-secondary"
+                                                className="group flex items-center px-2 py-2 text-base font-medium rounded-md text-white hover:text-white hover:bg-blue-dark"
                                             >
-                                                <item.icon className="mr-4 h-6 w-6 text-blue-light" aria-hidden="true" />
+                                                <item.icon className="mr-4 h-6 w-6 text-white" aria-hidden="true" />
                                                 {item.name}
                                             </a>
                                         ))}
@@ -117,17 +118,17 @@ function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
                 <div className="flex flex-col w-64">
                     {/* Sidebar component, swap this element with another sidebar if you like */}
                     <div className="flex flex-col flex-grow bg-blue-primary pt-5 pb-4 overflow-y-auto">
-                        <Link to='/' className="flex items-center flex-shrink-0 px-4">
-                            <p className="text-white text-lg font-semibold text-center">logo</p>
+                        <Link to='/' className="flex items-center flex-shrink-0">
+                            <img src={logo} alt="dashboard indicator of site name" className="py-2 h-28 self-center mx-auto" />
                         </Link>
-                        <nav className="mt-5 flex-1 flex flex-col divide-y divide-blue-secondary overflow-y-auto" aria-label="Sidebar">
+                        <nav className="mt-5 flex-1 flex flex-col divide-y divide-blue-dark overflow-y-auto" aria-label="Sidebar">
                             <div className="px-2 space-y-1">
                                 {navigation.map((item) => (
                                     <Link to={item.href}
                                         key={item.name}
-                                        className={`${location.pathname === item.href ? "bg-blue-secondary" : "bg-blue-primary hover:bg-blue-secondary "} text-blue-light group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md`}
+                                        className={`${location.pathname === item.href ? "bg-blue-dark" : "bg-blue-primary hover:bg-blue-dark "} text-white group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md`}
                                     >
-                                        <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-blue-light" aria-hidden="true" />
+                                        <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-white" aria-hidden="true" />
                                         {item.name}
                                     </Link>
                                 ))}
@@ -137,9 +138,9 @@ function DashboardSidebar({ sidebarOpen, setSidebarOpen }) {
                                     {secondaryNavigation.map((item) => (
                                         <Link key={item.name} to={item.href}
                                             href={item.href}
-                                            className={`${location.pathname === item.href ? "bg-blue-secondary" : "bg-blue-primary hover:bg-blue-secondary "} group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md text-blue-light hover:text-blue-light `}
+                                            className={`${location.pathname === item.href ? "bg-blue-dark" : "bg-blue-primary hover:bg-blue-dark "} group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md text-white hover:text-white `}
                                         >
-                                            <item.icon className="mr-4 h-6 w-6 text-blue-light" aria-hidden="true" />
+                                            <item.icon className="mr-4 h-6 w-6 text-white" aria-hidden="true" />
                                             {item.name}
                                         </Link>
                                     ))}

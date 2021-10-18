@@ -5,7 +5,7 @@ import CartSidebar from '../cart_sidebar/CartSidebar'
 import { useHistory } from 'react-router'
 import UserDropdown from '../dropdowns/UserDropdown'
 import MobileNavDrawer from '../drawers/MobileNavDrawer'
-import logo from '../../assets/icon.png'
+import logo from '../../assets/logo.png'
 
 function GeneralNavbar() {
 
@@ -17,8 +17,7 @@ function GeneralNavbar() {
     return (
         <div className="bg-white shadow flex flex-row items-center h-16 lg:px-32 md:px-16 px-2 space-x-4">
             <div onClick={() => history.push('/')} className="uppercase cursor-pointer font-bold text-sm text-gray-700 flex flex-row items-center">
-                <img src={logo} alt="logo representing the website icon" className="h-12" />
-                <p>Trolliey</p>
+                <img src={logo} alt="logo representing the website icon" className="h-24" />
             </div>
             <div className="flex-1"></div>
             <div className="md:flex hidden relative p-2 bg-gray-100 hover:bg-gray-200 cursor-pointer rounded-full">

@@ -7,9 +7,14 @@ module.exports = {
         transparent: 'transparent',
         current: 'currentColor',
         blue: {
-          primary: '#4d77dd',
+          primary: '#597bad',
           secondary: '#5469D0',
-          light: '#E5ECFA'
+          dark: '#3e577d',
+          light: '#94aaca'
+        },
+        new:{
+          primary:'#ad596d',
+          light:'#bf7e8e'
         }
       }
     },
