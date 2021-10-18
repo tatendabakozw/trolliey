@@ -14,6 +14,10 @@ function GeneralNavbar() {
     const [open_cart, setOpenCart] = useState(false)
     const history = useHistory()
 
+    const toggle_cart = () => {
+        !open_cart ? setOpenCart(true) : setOpenCart(false)
+    }
+
     return (
         <div className="bg-white shadow flex flex-row items-center h-16 lg:px-32 md:px-16 px-2 space-x-4">
             <div onClick={() => history.push('/')} className="uppercase cursor-pointer font-bold text-sm text-gray-700 flex flex-row items-center">
@@ -26,7 +30,7 @@ function GeneralNavbar() {
                     0
                 </span>
             </div>
-            <div onClick={() => setOpenCart(true)} className="relative flex p-2 bg-gray-100 hover:bg-gray-200 cursor-pointer rounded-full">
+            <div onClick={toggle_cart} className="relative flex p-2 bg-gray-100 hover:bg-gray-200 cursor-pointer rounded-full">
                 <ShoppingCartIcon height={20} width={20} className="text-gray-700" />
                 <span className="absolute right-0 top-0 rounded-full bg-red-400 w-4 h-4 top right p-0 m-0 text-white text-xs font-semibold text-center">
                     {basket?.length}
