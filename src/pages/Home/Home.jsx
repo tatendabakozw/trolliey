@@ -25,11 +25,16 @@ function Home() {
                 </div>
 
                 {/* //benefits */}
-                <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:py-16 md:pt-16 pt-8 pb-4 md:border-b border-b-none border-gray-200 items-center">
+                <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4 md:py-16 md:pt-16 pt-8 md:pb-4 pb-2 md:border-b border-b-none border-gray-200 items-center">
                     {
                         data.benefits.map((benefit, index) => (
                             <div key={index} className="col-span-1 flex md:flex-row flex-col md:border-none border-b border-gray-200 md:pb-0 pb-4 text-blue-primary hover:text-new-primary cursor-pointer">
-                                {benefit.icon}
+                                <div className="md:block hidden">
+                                    <benefit.icon height={32} width={32} className="mr-2" />
+                                </div>
+                                <div className="md:hidden block mb-1">
+                                    <benefit.icon height={24} width={24} className="mr-2" />
+                                </div>
                                 <div className="flex flex-col">
                                     <p className="text-gray-700 font-semibold capitalize">{benefit.heading}</p>
                                     <p className="text-gray-500 text-sm capitalize">{benefit.details}</p>

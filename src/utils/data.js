@@ -15,10 +15,10 @@ export const data = {
         { name: 'sofa seat', value: "sofa_seat" }
     ],
     benefits : [
-        { heading: 'Free shipment', details: 'Free shipment for bulk goods', icon: <ShoppingBagIcon height={32} width={32} className="mr-2" /> },
-        { heading: 'Anyplace anytime', details: 'Many methods', icon: <CreditCardIcon height={32} width={32} className="mr-2" /> },
-        { heading: '100% Satisfaction', details: 'great customer care', icon: <EmojiHappyIcon height={32} width={32} className="mr-2" /> },
-        { heading: 'Save money', details: 'frequent discounts', icon: <CurrencyDollarIcon height={32} width={32} className="mr-2" /> },
+        { heading: 'Free shipment', details: 'Free shipment for bulk goods', icon: ShoppingBagIcon, },
+        { heading: 'Anyplace anytime', details: 'Many methods', icon: CreditCardIcon },
+        { heading: '100% Satisfaction', details: 'great customer care', icon: EmojiHappyIcon },
+        { heading: 'Save money', details: 'frequent discounts', icon: CurrencyDollarIcon },
     ],
     products:[
         {name: 'toyota hilux', descrition: 'iam a a product iam a description of a product iam a description of a productiam a a product iam a description of a product iam a description of a product', rating: ['1', '2', '3', '4'], price:242, discount_price: 200, picture: picture, id: 1},
